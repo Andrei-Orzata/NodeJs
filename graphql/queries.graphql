@@ -1,0 +1,65 @@
+query Users {
+    users {
+        email
+        UserName
+        RealName
+    }
+}
+
+query UserById {
+    user(id: 14) {
+        id
+        email
+        UserName
+        RealName
+    }
+}
+
+query Posts {
+    posts {
+        title
+        body
+    }
+}
+
+query PostById {
+    post(id: 12) {
+        id
+        title
+        body
+        author {
+            id
+            UserName
+            RealName
+        }
+    }
+}
+
+mutation CreateUser {
+    createUser(
+        createUserInput: { email: "test@test.com", password: "123456789" }
+    ) {
+        id
+        email
+    }
+}
+
+mutation UpdateUser {
+    updateUser(
+        updateUserInput: {
+            email: "testEmail@test.com"
+            UserName: "UserTest"
+            RealName: "RealNameTeste"
+        }
+    ) {
+        email
+        UserName
+        RealName
+    }
+}
+
+mutation Login {
+    login(loginInput: { email: "random@randommail.com", password: "password" }) {
+        token
+    }
+}
