@@ -1,17 +1,26 @@
 query Users {
     users {
         email
-        UserName
-        RealName
+        firstName
+        lastName
     }
 }
 
 query UserById {
-    user(id: 14) {
+    user(id: 23) {
         id
         email
-        UserName
-        RealName
+        firstName
+        lastName
+    }
+}
+
+query UserById {
+    user(id: 75) {
+        id
+        email
+        firstName
+        lastName
     }
 }
 
@@ -29,15 +38,15 @@ query PostById {
         body
         author {
             id
-            UserName
-            RealName
+            firstName
+            lastName
         }
     }
 }
 
 mutation CreateUser {
     createUser(
-        createUserInput: { email: "test@test.com", password: "123456789" }
+        createUserInput: { email: "testtesttest@test.com", password: "testtest" }
     ) {
         id
         email
@@ -47,19 +56,19 @@ mutation CreateUser {
 mutation UpdateUser {
     updateUser(
         updateUserInput: {
-            email: "testEmail@test.com"
-            UserName: "UserTest"
-            RealName: "RealNameTeste"
+            email: "altEmail@test.com"
+            firstName: "Test"
+            lastName: "Testescu"
         }
     ) {
         email
-        UserName
-        RealName
+        firstName
+        lastName
     }
 }
 
 mutation Login {
-    login(loginInput: { email: "random@randommail.com", password: "password" }) {
+    login(loginInput: { email: "Mona42@hotmail.com", password: "password" }) {
         token
     }
 }

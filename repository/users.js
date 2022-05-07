@@ -5,7 +5,7 @@ const getAllUsers = async () => {
         const allUsers = await db.User.findAll()
         return allUsers
     } catch (error) {
-        console.error('Error!')
+        console.error('Something went wrong')
         return null
     }
 }
@@ -16,13 +16,13 @@ const getUserById = async (id) => {
 }
 
 const createUser = async (args) => {
-    const { email, password, UserName, RealName } = args
+    const { email, password, firstName, lastName } = args
     try {
         const newUser = await db.User.create({
             email,
             password,
-            UserName,
-            RealName,
+            firstName,
+            lastName,
         })
 
         return newUser
@@ -41,14 +41,14 @@ const updateUser = async (args, context) => {
     }
 
     const { id } = user
-    const { email, UserName, RealName } = args
+    const { email, firstName, lastName } = args
 
     try {
         await db.User.update(
             {
                 email,
-                UserName,
-                RealName,
+                firstName,
+                lastName,
             },
             {
                 where: {
@@ -74,7 +74,7 @@ const deleteUser = async (req, res) => {
         })
         res.status(202).send('User deleted successfully')
     } catch (error) {
-        res.send({ error: 'Error!' })
+        res.send({ error: 'Something went wrong' })
     }
 }
 

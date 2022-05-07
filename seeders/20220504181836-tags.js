@@ -5,7 +5,7 @@ module.exports = {
     up: async (queryInterface, Sequelize) => {
         const tags = []
 
-        for (let i = 0; i < 50; i++) {
+        for (let i = 0; i < 20; i++) {
             const label = faker.lorem.words()
             tags.push({
                 label,

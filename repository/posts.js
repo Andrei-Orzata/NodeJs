@@ -5,7 +5,7 @@ const getAllPosts = async () => {
         const allPosts = await db.Post.findAll()
         return allPosts
     } catch (error) {
-        console.error('Error!')
+        console.error('Something went wrong')
         return null
     }
 }
@@ -42,8 +42,8 @@ const createPost = async (req, res) => {
 
         res.status(201).send(newPost)
     } catch (error) {
-        console.error('Error!. ', error)
-        res.send({ error: 'Error!' })
+        console.error('Something went wrong. ', error)
+        res.send({ error: 'Something went wrong' })
     }
 }
 
@@ -74,8 +74,8 @@ const addTagToPost = async (req, res) => {
 
         res.status(201).send(response)
     } catch (error) {
-        console.error('Error!. ', error)
-        res.send({ error: 'Error!' })
+        console.error('Something went wrong. ', error)
+        res.send({ error: 'Something went wrong' })
     }
 }
 
@@ -91,7 +91,7 @@ const updatePost = async (req, res) => {
         const updatedPost = await db.Post.findByPk(req.params.id)
         res.send(updatedPost)
     } catch (error) {
-        res.send({ error: 'Error!' })
+        res.send({ error: 'Something went wrong' })
     }
 }
 
@@ -104,7 +104,7 @@ const deletePost = async (req, res) => {
         })
         res.status(202).send('Post deleted successfully')
     } catch (error) {
-        res.send({ error: 'Error!' })
+        res.send({ error: 'Something went wrong' })
     }
 }
 

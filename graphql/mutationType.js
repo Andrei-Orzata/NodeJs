@@ -6,11 +6,12 @@ const loginResultType = require('./types/loginResultType')
 const loginHandler = require('../repository/login')
 
 const userType = require('./types/userType')
+
 const createUserInputType = require('./inputTypes/createUserInputType')
 
 const db = require('../models')
-
 const updateUserInputType = require('./inputTypes/updateUserInputType')
+
 const { createUser, updateUser } = require('../repository/users')
 
 const mutationType = new GraphQLObjectType({

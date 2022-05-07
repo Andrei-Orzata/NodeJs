@@ -1,11 +1,9 @@
-const 
-{
+const {
     GraphQLObjectType,
     GraphQLList,
     GraphQLID,
     GraphQLNonNull,
     GraphQLString,
-
 } = require('graphql')
 
 const db = require('../models')

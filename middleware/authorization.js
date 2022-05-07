@@ -6,8 +6,7 @@ const authorizationMiddleware = async (req, res, next) => {
     const authorization = req.headers.authorization
     if (authorization) 
     {
-        try 
-        {
+        try {
             const decoded = jwt.verify(
                 authorization.replace('Bearer ', ''),
                 MY_SECRET_KEY
@@ -20,7 +19,9 @@ const authorizationMiddleware = async (req, res, next) => {
                 req.user = user
                 next()
             }
-        } catch (e) {
+        } 
+        catch (e) 
+        {
             console.error('Error: ', e)
             next()
         }
